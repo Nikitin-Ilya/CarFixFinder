@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <header class="header">
+    <div class="container">
+      <div class="header__body">
+        <!--============================Логотип==============================-->
+        <a [routerLink]="['/']" class="header__logo">
+            <span class="header__text blue">Car</span><span class="header__text red">Fix</span><span class="header__text grey">Finder</span>
+        </a>
+        <!--==============================Меню===============================-->
+        <div class="header__menu" [class.active]="active">
+          <nav>
+              <ul class="header__list">
+                <li><a [routerLink]="['/']" class="header__link">Головна</a></li>
+                <li><a [routerLink]="['/orders']" class="header__link">Замовлення</a></li>
+                <li><a [routerLink]="['/executors']" class="header__link">Виконавці</a></li>
+              </ul>
+          </nav>
+          <!--===============Блок авторизации и выбора языка===================-->
+          <div class="header__auth">
+            <!--========================Выбор языка============================-->
+            <div class="header__lang">
+              <h5 class="main-font">UA</h5>
+              <div class="header__arrow">
+                <img src="assets/img/header/Arrow.png" alt="Ой!">
+              </div>
+            </div>
+            <!--=========================Кнопки авторизации============================-->
+            <a [routerLink]="['/dashboard']">
+              <div *ngIf="authService.isLoggedIn()" class="header__profile">
+                <img src="../../assets/img/header/profile-image.png" alt="Ой!">
+              </div>
+            </a>
+            <a [routerLink]="['/auth']">
+              <div *ngIf="!authService.isLoggedIn()" class="header__signin"><h5>Вхід</h5></div>
+            </a>
+            <a [routerLink]="['/reg']">
+              <div *ngIf="!authService.isLoggedIn()" class="header__signup"><h5>Реєстрація</h5></div>
+            </a>
+          </div>
+        </div>
+        <!--=====================Кнопка бургер меню=========================-->
+        <div (click)="burgerMenuClick()" class="header__burger" [class.active]="active">
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<div class="content" [class.active]="active"></div>
+
+

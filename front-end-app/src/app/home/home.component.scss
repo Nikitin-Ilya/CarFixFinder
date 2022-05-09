@@ -1,0 +1,157 @@
+*{
+  font-family: Montserrat;
+  font-size: 24px;
+}
+
+$red: #D62828;
+$blue: #003049;
+$orange: #F77F00;
+$grey: #777777;
+$white: #fff;
+$black: #000;
+
+.wrapper{
+  /*background: url("../../assets/img/home/passat.png") ((900px/1600px)*100%) 0px 0px 0px no-repeat;*/
+}
+.container{
+  max-width: 1230px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.offer__title {
+  margin: 154px 0 28px 0;
+  .main-text {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 56px;
+    padding-top: 10px;
+  }
+}
+
+.offer__desc {
+  margin: 0 0 39px 0;
+  .text {
+    font-size: 24px;
+    padding-top: 10px;
+  }
+}
+
+.offer__button {
+  width: 266px;
+  height: 56px;
+  background-color: $orange;
+  border-radius: 30px;
+  box-shadow: 0px 4px 35px rgba(247, 127, 0, 0.7);
+  .button-text {
+    font-size: 18px;
+    text-align: center;
+    padding: 17px 0;
+  }
+}
+.offer__button:hover{
+  box-shadow: inset 0px 0px 8px rgba(255, 255, 255, 0.7);
+}
+
+img{
+  max-width: 762px;
+  margin: -320px 0 0 590px;
+}
+
+@media (max-width: 1480px){
+  img{
+    max-width: 630px;
+    margin: -320px 0 0 590px;
+  }
+}
+
+@media (max-width: 1230px){
+  .offer{
+    display: flex;
+    justify-content: space-between;
+  }
+  img{
+    /*padding-top: 300px;
+    /*margin: -320px 0 0 590px;*/
+    margin: 0;
+    width: 500px;
+    padding-top: 100px;
+  }
+  .offer__info{
+    max-width: 500px;
+  }
+  .offer__title {
+    margin: 100px 0 28px 0;
+    .main-text {
+      font-size: 40px;
+    }
+  }
+  .offer__desc {
+    .text {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 941px){
+  .offer{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .offer__image{
+    margin: 0 auto;
+  }
+  img{
+    /*padding-top: 300px;
+    /*margin: -320px 0 0 590px;*/
+    margin: 0;
+    max-width: 400px;
+    padding-top: 0px;
+  }
+  .offer__info{
+  }
+  .offer__title {
+    margin-top: 0px;
+    .main-text {
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+  .offer__desc {
+    .text {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  .offer__button{
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 448px){
+  img{
+    /*padding-top: 300px;
+    /*margin: -320px 0 0 590px;*/
+    margin: 0;
+    max-width: 200px;
+    padding-top: 0px;
+  }
+  .offer__info{
+  }
+  .offer__title {
+    margin-top: 0px;
+    .main-text {
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+  .offer__desc {
+    .text {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  .offer__button{
+    margin: 0 auto;
+  }
+}

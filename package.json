@@ -1,0 +1,23 @@
+{
+  "name": "carfixfinder",
+  "version": "1.0.0",
+  "description": "Web application - freelance exchange for the selection of automotive services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "Nikitin Ilya",
+  "license": "ISC"
+}

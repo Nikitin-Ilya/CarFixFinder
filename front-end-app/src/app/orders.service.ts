@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrdersService {
+
+  constructor(private http: HttpClient) { }
+
+  createOrder(order: any){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/create-order',
+    order,
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  getOrders(){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.get('http://localhost:3000/account/orders',
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+}

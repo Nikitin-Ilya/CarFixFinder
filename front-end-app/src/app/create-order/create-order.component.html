@@ -1,0 +1,18 @@
+<div class="createOrder-page">
+  <div class="form">
+    <flash-messages class="alert-danger"></flash-messages>
+    <form class="createOrder-form">
+      <span class="label">Назва замовлення</span>
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Введіть назву замовлення" class="form-control"><br>
+      <span class="label">Опис замовлення</span>
+      <ejs-richtexteditor #defaultRTE>
+        <ng-template>
+
+        </ng-template>
+      </ejs-richtexteditor><br>
+      <div class="btn">
+        <button ej-button id="button" class="btn btn-succes" (click)="createOrderClick()">Створити замовлення</button>
+      </div>
+    </form>
+  </div>
+</div>

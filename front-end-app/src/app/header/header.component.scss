@@ -1,0 +1,302 @@
+$red: #D62828;
+$blue: #003049;
+$orange: #F77F00;
+$grey: #777777;
+$white: #fff;
+$black: #000;
+
+*{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.blue{
+  color:$blue;
+}
+.red{
+  color:$red;
+}
+.grey{
+  color:$grey;
+}
+.white{
+  color: $white;
+}
+
+.wrapper {
+
+}
+
+.header{
+  position: fixed;
+  width: 100%;
+  top:0;
+  left: 0;
+  z-index: 50;
+  background: $white;
+}
+
+.container{
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.header:before{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.header__text{
+  font-weight: 800;
+  font-size: 28px;
+  position: relative;
+  z-index: 3;
+}
+
+.header__body{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+}
+
+.header__menu{
+  display: flex;
+}
+
+.header__list{
+  display: flex;
+  position: relative;
+  z-index: 2;
+  margin-top: 7px;
+}
+.header__list li{
+  margin-left: 20px;
+}
+
+.header__link{
+  transition: color .2s linear;
+}
+
+.header__link:hover{
+  color: $red;
+}
+
+.header__auth{
+  display: flex;
+}
+
+.header__lang{
+  display: flex;
+  color:$black;
+  margin: 9px 40px 0 40px;
+  .header__arrow{
+    margin: 4px 0 0 6px;
+    img{
+      width: 13px;
+      height: 6.5px;
+    }
+  }
+}
+
+.header__profile{
+  
+  img{
+    margin-top: 6px;
+    max-width: 25px;
+    max-height: 25px;
+  }
+}
+
+.header__signin{
+  color: $white;
+  width: 94px;
+  height: 33px;
+  background: $blue;
+  border-radius:20px 0 0 20px;
+  h5{
+    padding-top: 7px;
+    padding-left: 10px;
+  }
+}
+.header__signin:hover{
+  background: $white;
+  border: 2px $blue solid;
+  h5{
+    color: $blue;
+  }
+}
+.header__signup{
+  color: $white;
+  margin-left: -36px;
+  width: 125px;
+  height: 33px;
+  background: $red;
+  border-radius:20px 20px 20px 20px;
+  h5{
+    padding-top: 7px;
+    padding-left: 10px;
+  }
+}
+.header__signup:hover{
+  background: $white;
+  border: 2px $red solid;
+  h5{
+    color: $red;
+  }
+}
+
+.header__burger{
+  display:none;
+}
+
+@media (max-width: 942px)
+{
+  .header{
+    border-bottom: 1px #b9b9b9 solid;
+  }
+  .header__body{
+    height: 49px;
+  }
+  .header__logo{
+    margin: 0 auto;
+    .header__text{
+      font-size: 20px;
+    }
+  }
+  .header__burger{
+    display:block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 3;
+  }
+  .header__burger span{
+    position: absolute;
+    background-color: $black;
+    left:0;
+    width: 100%;
+    height: 2px;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+  }
+  .header__burger::before, .header__burger::after{
+    content: '';
+    background-color: $black;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left:0;
+    transition: all 0.3s ease 0s;
+  }
+  .header__burger::before{
+    top:0;
+  }
+  .header__burger::after{
+    bottom:0;
+  }
+  /**************** Меню *******************/
+  .header__menu{
+    position: fixed;
+    top:0;
+    right: -100%;
+    max-width: 220px;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    padding: 0 10px 20px 10px;
+    margin-top: 50px;
+    text-align: right;
+    display: block;
+    transition: all 0.3s ease 0s;
+  }
+  .header__list{
+    display: block;
+  }
+  .header__list li{
+    display: block;
+    margin-bottom: 20px;
+  }
+  .header__auth{
+    top:0;
+    right: 0;
+    height: 100%;
+    display: block;
+    .header__arrow{
+      margin: 4px 0 0 0;
+    }
+  }
+  .header__lang{
+    margin: 0;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row-reverse;
+    .header__arrow{
+      display: none;
+    }
+  }
+  .header__lang{
+    background: url("../../assets/img/header/ArrowBig.png") left no-repeat;
+    margin-left: 5px;
+  }
+  .header__signin{
+    margin:20px 0 10px 0;
+    border-radius:20px 20px 20px 20px;
+    width: 100%;
+    text-align: center;
+    h5{
+      padding-left: 0;
+      color:$white;
+    }
+  }
+  .header__signup{
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    h5{
+      padding-left: 0;
+    }
+  }
+  .content{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    opacity: 50%;
+    z-index:1;
+    display: none;
+    transition: all 0.3s ease 0s;
+  }
+  .header__burger.active span{
+    transform:scale(0);
+
+  }
+  .header__burger.active::before{
+    transform:rotate(45deg);
+    top: 9px;
+
+  }
+  .header__burger.active::after{
+    transform:rotate(-45deg);
+    bottom: 9px;
+  }
+  .header__menu.active{
+    right: 0;
+  }
+  .content.active{
+    display: block;
+  }
+}
+
+
+
+
+

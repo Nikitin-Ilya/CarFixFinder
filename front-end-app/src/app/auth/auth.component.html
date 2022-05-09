@@ -1,0 +1,10 @@
+<div class="login-page">
+    <div (submit)="userLoginClick()" class="form">
+      <flash-messages class="alert-danger"></flash-messages>
+      <form class="login-form">
+        <input type="text" [(ngModel)]="login" name="login" placeholder="Введіть логін" class="form-control"><br>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Введіть пароль" class="form-control"><br>
+        <button class="btn btn-succes" type="submit">Увійти</button>
+      </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+$red: #D62828;
+$blue: #003049;
+$orange: #F77F00;
+$grey: #777777;
+$white: #fff;
+$black: #000;
+
+.footer{
+    width: 100%;
+    height: 100px;
+    background-color: $blue;
+    margin-top: auto;
+}
+
+p{
+    font-family: Montserrat;
+    font-size: 30px;
+    color: $white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 40px;
+}
