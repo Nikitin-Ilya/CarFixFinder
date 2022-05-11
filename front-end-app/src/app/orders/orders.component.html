@@ -2,12 +2,17 @@
 <div class="wrapper">
   <div class="container">
     <div class="orderInfo">
-      <h1 class="orderInfo__desc">Всього замовлень</h1><div class="orderInfo__count"><p>{{ordersCount}}</p></div>
+      <h1 class="orderInfo__desc">Всього замовлень</h1>
+        <div class="orderInfo__count" *ngIf="(orders | async) let order">
+          <p>{{order.length}}</p></div>
+      <div class="createOrder">
+        <button class="createOrder__button" (click)="createOrder()">Створити замовлення</button>
+      </div>
     </div>
-    <button (click)="createOrder()">Створити замовлення</button>
+
     <main class="ordersList">
-      <div class="ordersList__order" *ngFor="let orders of orders | async ; let i = index">
-        <a class="orderName" href="#"><p>{{orders.name}}</p></a>
+      <div class="ordersList__order" *ngFor="let orders of orders | async">
+        <a class="orderName" [routerLink]="['/orders', orders._id]"><p>{{orders.name}}</p></a>
         <p class="description">{{orders.description}}</p>
         <a href="#"><p class="user">{{orders.userLogin}}</p></a>
       </div>

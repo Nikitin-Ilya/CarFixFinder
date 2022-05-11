@@ -9,6 +9,8 @@ import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { OrdersComponent } from './orders/orders.component';
+import { CreateOrderComponent } from './create-order/create-order.component';
+//import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { ExecutorsComponent } from './executors/executors.component';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -20,11 +22,12 @@ import { FlashMessagesModule } from 'flash-messages-angular';
 import { AuthService } from './auth.service';
 import { OrdersService } from './orders.service';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdersRoutingModule } from './orders/orders-routing/orders-routing.module';
 
 import { IsLoggedIn } from './isLogged.guard';
-import { CreateOrderComponent } from './create-order/create-order.component';
 
 import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
+
 
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
@@ -32,6 +35,7 @@ const appRoute: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: [IsLoggedIn]},
   {path: 'executors', component: ExecutorsComponent},
   {path: 'orders', component: OrdersComponent},
+  //{path: 'orders/:id', component: OrderDetailComponent},
   {path: 'reg', component: RegComponent},
   {path: 'create-order', component: CreateOrderComponent},
 ];
@@ -47,7 +51,8 @@ const appRoute: Routes = [
     OrdersComponent,
     ExecutorsComponent,
     FooterComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    //OrderDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ const appRoute: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot(),
     HttpClientModule,
-    RichTextEditorModule
+    RichTextEditorModule,
+    OrdersRoutingModule
   ],
   providers: [
     CheckFormService,

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ToolbarService, LinkService, ImageService, HtmlEditorService } from '@syncfusion/ej2-angular-richtexteditor';
+import { ToolbarService, LinkService, ImageService, HtmlEditorService, QuickToolbarService, ImageSettingsModel } from '@syncfusion/ej2-angular-richtexteditor';
 import { RichTextEditorComponent } from '@syncfusion/ej2-angular-richtexteditor';
 import { OrdersService } from '../orders.service';
 import { AuthService } from '../auth.service';
@@ -11,12 +11,14 @@ import { Console } from 'console';
   selector: 'app-create-order',
   templateUrl: './create-order.component.html',
   styleUrls: ['./create-order.component.scss'],
-  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService]
+  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, QuickToolbarService]
 })
 
 export class CreateOrderComponent implements OnInit {
   @ViewChild('defaultRTE')
   public rteObj! : RichTextEditorComponent;
+  public insertImageSettings :ImageSettingsModel = { allowedTypes: ['.jpeg', '.jpg', '.png'], display: 'inline', width: 'auto', height: 'auto', saveFormat: 'Base64'}
+
 
   name!: String;
   description!: String;
@@ -28,19 +30,18 @@ export class CreateOrderComponent implements OnInit {
     private authService: AuthService,
     private flashMessages: FlashMessagesService,
     private router: Router,
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   createOrderClick(){
     //this.user = this.authService.getUser();
-
+    //this.rteObj.insertImageSettings.saveFormat = 'Base64';
 
     const order = {
       name: this.name,
       description: this.rteObj.getText(),
-      descriptionHtml: this.rteObj.getHtml(),
+      descriptionHtml: this.rteObj.value,
       userLogin: this.authService.getUser().login
     };
     this.ordersService.createOrder(order).subscribe(data => {

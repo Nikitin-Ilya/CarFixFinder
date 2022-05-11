@@ -14,7 +14,6 @@ import { NumericTypes } from 'mongoose';
 export class OrdersComponent implements OnInit {
 
   orders = this.ordersService.getOrders();
-  ordersCount = Object.keys(this.orders).length;
 
   constructor(
     public ordersService: OrdersService,
@@ -23,8 +22,7 @@ export class OrdersComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   createOrder(){
     if(this.isLoggedIn.canActivate()){

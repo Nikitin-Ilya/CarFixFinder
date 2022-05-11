@@ -5,7 +5,7 @@
       <span class="label">Назва замовлення</span>
       <input type="text" [(ngModel)]="name" name="name" placeholder="Введіть назву замовлення" class="form-control"><br>
       <span class="label">Опис замовлення</span>
-      <ejs-richtexteditor #defaultRTE>
+      <ejs-richtexteditor #defaultRTE [insertImageSettings]='insertImageSettings'>
         <ng-template>
 
         </ng-template>
@@ -16,3 +16,4 @@
     </form>
   </div>
 </div>
+
