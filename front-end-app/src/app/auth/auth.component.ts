@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthComponent implements OnInit {
 
   login!: String;
-  password!: String; 
+  password!: String;
 
   constructor(
     private flashMessages: FlashMessagesService,
@@ -19,8 +19,7 @@ export class AuthComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   userLoginClick() {
     const user = {
@@ -47,7 +46,7 @@ export class AuthComponent implements OnInit {
           cssClass: 'alert-success',
           timeout: 4000
         },);*/
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/' + this.login]);
         this.authService.storeUser(data.token, data.user);
       }
     });

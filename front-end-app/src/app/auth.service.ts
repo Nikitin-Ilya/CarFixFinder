@@ -52,4 +52,28 @@ export class AuthService {
     if(localStorage.getItem('token')!=undefined) return true;
   };
 
+  getUsers() {
+    /*return this.http.post('http://localhost:3000/account/getUserByLogin',
+    login).pipe(map((response: any) => response));*/
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.get('http://localhost:3000/account/getUsers',
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  getUserByLogin(login: string){
+    return this.getUsers().pipe(
+      // (+) before `id` turns the string into a number
+      map((users: any) => users.find((user: any) => user.login === +login)!));
+  }
+
+  setImage(data: any) {
+    return this.http.post('http://localhost:3000/account/setProfileImage',
+    data).pipe(map((response: any) => response));
+    /*.subscribe(res => {
+      console.log(res);
+      return res;
+    });*/
+  }
+
 }

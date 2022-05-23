@@ -32,7 +32,7 @@ import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
   {path: 'auth', component: AuthComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [IsLoggedIn]},
+  {path: 'dashboard/:id', component: DashboardComponent, canActivate: [IsLoggedIn]},
   {path: 'executors', component: ExecutorsComponent},
   {path: 'orders', component: OrdersComponent},
   //{path: 'orders/:id', component: OrderDetailComponent},

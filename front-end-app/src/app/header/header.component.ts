@@ -8,6 +8,8 @@ import { AuthService } from '../auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  user = this.authService.getUser().login;
+
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
@@ -19,4 +21,6 @@ export class HeaderComponent implements OnInit {
     if(!this.active) this.active = true;
     else this.active = false;
   }
+
+
 }

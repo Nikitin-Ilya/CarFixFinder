@@ -17,6 +17,10 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    foto: {
+        type: String,
+        required: true
     }
 });
 
@@ -26,6 +30,13 @@ module.exports.getUserByLogin = function(login, callback){
     const query = { login: login };
     User.findOne(query, callback);
 };
+
+/*module.exports.checkUserLogin = function(login){
+    const query = { login: login };
+    
+    if (User.findOne(query, callback)) return true;
+    else return false;
+};*/
 
 module.exports.getUserById = function(id, callback){
     User.findById(id, callback);
@@ -46,5 +57,18 @@ module.exports.comparePass = function(passFromUser, userDBPass, callback){
         if (err) throw err;
         callback(null, isMatch);
     });
-}; 
+};
+
+module.exports.setUserImage = function(data, callback){
+    User.findByIdAndUpdate(data.id, { name: "path-to-image" },
+        function (err, docs) {
+            if (err){
+                console.log(err)
+            }
+            else{
+                console.log("Updated User : ", docs);
+            }
+        }
+    );
+};
 

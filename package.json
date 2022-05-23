@@ -15,6 +15,7 @@
     "express-session": "^1.17.2",
     "jsonwebtoken": "*",
     "mongoose": "*",
+    "multer": "^1.4.4",
     "passport": "*",
     "passport-jwt": "*"
   },

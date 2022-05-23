@@ -29,25 +29,7 @@ const OrderSchema = mongoose.Schema({
 
 const Order = module.exports = mongoose.model('Order', OrderSchema);
 
-/*module.exports.getUserByLogin = function(login, callback){
-    const query = { login: login };
-    User.findOne(query, callback);
-};
-
-module.exports.getUserById = function(id, callback){
-    User.findById(id, callback);
-};*/
-
-
-
 module.exports.addOrder = function(newOrder, callback){
     newOrder.save(callback);
 };
-/*
-module.exports.comparePass = function(passFromUser, userDBPass, callback){
-    bcrypt.compare(passFromUser, userDBPass, (err, isMatch) => {
-        if (err) throw err;
-        callback(null, isMatch);
-    });
-}; */
 
