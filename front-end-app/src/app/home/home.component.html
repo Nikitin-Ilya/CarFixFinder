@@ -21,15 +21,55 @@
           <img src="assets/img/home/passat.png" alt="Ой!">
         </div>
       </div>
-      <div class="forCustomers">
-        <p class="forCustomers__title">Замовникам</p>
-          <h1 class="forCustomers__headertext">створюйте фріланс-проєкт</h1>
-          <p class="forCustomers__description"></p>
 
-        <div class="forCustomers__card"></div>
-        
-
+      <div class="forExecutors">
+        <p class="forExecutors__title">В и к о н а в ц я м</p>
+        <p class="forExecutors__text">Які можливості CarFixFinder надає фрилансерам</p>
+        <div class="forExecutors__card">
+          <div class="img">
+            <img src="../../assets/img/auto-mechanic.jpg" alt="Ой!">
+          </div>
+          <div class="leftside">
+            <ul>
+              <li>
+                <i class="fa fa-check-circle" aria-hidden="true"></i>Робота доступна для кожного
+              </li>
+              <li>
+                <i class="fa fa-check-circle" aria-hidden="true"></i>Вибір замовлень за спеціалізацією
+              </li>
+              <li>
+                <i class="fa fa-check-circle" aria-hidden="true"></i>Швидкий пошук роботи по заданим <span>параметрам</span>
+              </li>
+            </ul>
+            <a [routerLink]="['/reg']">
+              <div class="forExecutors__button">
+                <p class="button-text">Стати виконавцем</p>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
+
+      <div class="forCustomers">
+        <p class="forCustomers__title">З а м о в н и к а м</p>
+        <div class="forCustomers__card">
+          <div class="leftside">
+            <h3 class="forCustomers__headertext">Створюйте <span>замовлення</span></h3>
+            <p class="forCustomers__description">Отримайте найкращі пропозиції за ціною, термінами від виконавців</p>
+            <a [routerLink]="['/create-order']">
+            <div class="forCustomers__button">
+              <p class="button-text">Розмістити замовлення</p>
+            </div>
+            </a>
+          </div>
+          <div class="img">
+            <img src="../../assets/img/create-order.png" alt="Ой!">
+          </div>
+        </div>
+      </div>
+
+
+
     </section>
   </div>
 </div>

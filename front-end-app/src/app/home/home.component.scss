@@ -3,6 +3,8 @@
   font-size: 24px;
 }
 
+@import '~font-awesome/scss/font-awesome';
+
 $red: #D62828;
 $blue: #003049;
 $orange: #F77F00;
@@ -17,6 +19,11 @@ $black: #000;
   max-width: 1230px;
   padding: 0 10px;
   margin: 0 auto;
+
+}
+
+section{
+  margin-bottom: 100px;
 }
 .offer__title {
   margin: 154px 0 28px 0;
@@ -30,9 +37,11 @@ $black: #000;
 
 .offer__desc {
   margin: 0 0 39px 0;
+  color: #696e7e;
   .text {
     font-size: 24px;
     padding-top: 10px;
+    margin-bottom: 0;
   }
 }
 
@@ -43,39 +52,49 @@ $black: #000;
   border-radius: 30px;
   box-shadow: 0px 4px 35px rgba(247, 127, 0, 0.7);
   .button-text {
-    font-size: 18px;
+    /*font-size: 18px;*/
     text-align: center;
-    padding: 17px 0;
+    padding: 14px 0;
+    color: #fefefe;
+    line-height: 24px;
+    font-weight: 700;
+   font-size: 18px;
   }
 }
 .offer__button:hover{
   box-shadow: inset 0px 0px 8px rgba(255, 255, 255, 0.7);
 }
-
-img{
-  max-width: 762px;
-  margin: -320px 0 0 590px;
-}
-
-@media (max-width: 1480px){
+.offer{
   img{
-    max-width: 630px;
+    max-width: 762px;
     margin: -320px 0 0 590px;
   }
+}
+
+
+@media (max-width: 1480px){
+  .offer{
+    img{
+      max-width: 630px;
+      margin: -320px 0 0 590px;
+    }
+  }
+
 }
 
 @media (max-width: 1230px){
   .offer{
     display: flex;
     justify-content: space-between;
+    img{
+      /*padding-top: 300px;
+      /*margin: -320px 0 0 590px;*/
+      margin: 0;
+      width: 500px;
+      padding-top: 100px;
+    }
   }
-  img{
-    /*padding-top: 300px;
-    /*margin: -320px 0 0 590px;*/
-    margin: 0;
-    width: 500px;
-    padding-top: 100px;
-  }
+
   .offer__info{
     max-width: 500px;
   }
@@ -155,3 +174,160 @@ img{
     margin: 0 auto;
   }
 }
+
+.forCustomers {
+  margin-top: 80px;
+  .forCustomers__title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #acaeb9;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .forCustomers__card {
+    display: flex;
+    margin: 0 auto;
+    width: 1000px;
+    padding: 20px 20px 0 20px;
+    border-radius: 10px;
+    background-color: #F4F6FC;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.123);
+    .forCustomers__headertext {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 32px;
+      color: #232a42;
+      font-family: Montserrat;
+      span{
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 32px;
+        color: #f64c55;
+      }
+    }
+    .forCustomers__description {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+      color: #232a42;
+    }
+    .forCustomers__button {
+      margin-top: 70px;
+      height: 60px;
+      width: 300px;
+      background-color: $orange;
+      padding: 16px 20px 0 31px;
+      border-radius: 30px;
+      box-shadow: 0px 4px 20px rgba(247, 128, 0, 0.705);
+      .button-text {
+        color: #fefefe;
+        line-height: 24px;
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+    .img{
+      //margin-top: -20px;
+      width: 300px;
+      height: 250px;
+      img{
+        width: 300px;
+        height: 250px;
+      }
+    }
+  }
+}
+
+.forExecutors {
+  margin-top: 80px;
+  .forExecutors__title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #acaeb9;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .forExecutors__text {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+    color: #232a42;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .forExecutors__card {
+    display: flex;
+    margin: 0 auto;
+    width: 1000px;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    background-color: #F4F6FC;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.123);
+    .leftside{
+      margin-left: 50px;
+      ul{
+        li{
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 32px;
+          color: #232a42;
+          padding-bottom: 30px;
+          span{
+            padding-left: 42px;
+          }
+          .fa{
+            color:#f64c55;
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+    .forExecutors__headertext {
+      font-size: 24px;
+      font-weight: 700;
+      font-family: Montserrat;
+      color: #232a42;
+      line-height: 32px;
+      span{
+        color: #f64c55;
+      }
+    }
+    .forExecutors__description {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+      color: #232a42;
+    }
+    .forExecutors__button {
+      margin-top: 20px;
+      height: 60px;
+      width: 250px;
+      background-color: $orange;
+      padding: 16px 20px 0 33px;
+      border-radius: 30px;
+      box-shadow: 0px 4px 20px rgba(247, 128, 0, 0.705);
+      .button-text {
+        color: #fefefe;
+        line-height: 24px;
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+    .img{
+      margin-top: -10px;
+      width: 300px;
+      height: 300px;
+      box-shadow: 0px 0px 10px #fff;
+      img{
+        width: 300px;
+        height: 300px;
+        box-shadow: 0px 0px 10px #fff;
+      }
+    }
+  }
+}
+
+
