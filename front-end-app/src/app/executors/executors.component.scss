@@ -1,0 +1,114 @@
+*{
+  font-family: "PT Sans", sans-serif;
+}
+
+$red: #D62828;
+$blue: #003049;
+$orange: #F77F00;
+$grey: #777777;
+$white: #fff;
+$black: #000;
+
+.wrapper{
+  /*background: url("../../assets/img/home/passat.png") ((900px/1600px)*100%) 0px 0px 0px no-repeat;*/
+}
+.container{
+  max-width: 1230px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.userInfo__foto{
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 10px;
+  img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+.orderInfo{
+  font-size: 30px;
+  font-weight: 700;
+  color: #555555;
+  display:flex;
+  .orderInfo__desc{
+    padding-right: 15px;
+    padding-top: 10px;
+  }
+  .orderInfo__count{
+    margin-top: 13px;
+    min-width: 30px;
+    height: 25px;
+    background-color: #ec3e3e;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 20%;
+    p{
+      padding-top: 5px;
+      padding-left: 10px;
+    }
+  }
+}
+
+.createOrder{
+  margin-left: 689px;
+  .createOrder__button{
+    width: 200px;
+    height: 50px;
+    background-color: #ec3e3e;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px 10px 10px 10px;
+
+  }
+}
+
+.ordersList{
+  width: 70%;
+  margin-left: 30%;
+  margin-top: 40px;
+}
+
+.ordersList__order {
+  min-height: 100px;
+  //font-family: "PT Sans", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 1px solid #E0E0E0;
+  margin: 0 0 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  .orderName{
+    font-weight:400;
+    color:#1F689E;
+    font-size: 19px;
+
+  }
+  a:hover{
+    text-decoration:underline;
+  }
+  .a:visited{
+    //color: #94B6D7;
+  }
+  .description{
+    //font-family: "PT Sans", sans-serif;
+    font-size: 15px;
+    padding-top: 10px;
+    font-weight: 400;
+  }
+  .date{
+    font-size: 16px;
+  }
+  .user{
+    //font-family: "PT Sans", sans-serif;
+    color: #2173AF;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+}

@@ -6,6 +6,56 @@
     <div class="orderDescription">
       <div class="orderDescription__HTML" [innerHTML]="order$.descriptionHtml"></div>
     </div>
+      <div class="bids">
+        <form class="bids__create" [class.active]="active">
+          <span class="label price">Вартість *</span>
+          <input type="number" [(ngModel)]="price" required name="price" class="price">
+          <span class="placeholder price">UAH</span><br>
+          <span class="label terms">Строк виконання *</span>
+          <input type="number" [(ngModel)]="terms" required name="terms" class="terms"><br>
+          <span class="placeholder terms">Час на виконання роботи в днях</span><br>
+          <span class="label comment">Коментар *</span>
+          <textarea cols="10" type="text" [(ngModel)]="comment" required name="comment" placeholder="Зацікавте замовника, щоб він звернувся саме до вас" class="comment"></textarea><br>
+          <div class="bidButton">
+            <button (click)="createBid()"><i class="fa fa-plus-square fa-lg"></i>Додати</button>
+          </div>
+        </form>
+        <div class="bids__header">
+          <p>Ставки</p>
+          <div class="bidButton" [class.active]="active">
+            <button class="addButton" (click)="addBid()"><i class="fa fa-plus-square fa-lg"></i>Створити ставку</button>
+            <!--h1 mat-dialog-title>Delete file</h1>
+            <div mat-dialog-content>
+              Would you like to delete cat.jpeg?
+            </div>
+            <div mat-dialog-actions>
+              <button mat-button mat-dialog-close>No</button>
+              <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+            </div-->
+          </div>
+        </div>
+        <div class="bidsList" *ngFor="let bids of bids | async">
+          <div class="bidsList__header">
+            <a href="#"><p class="user">{{bids.userLogin}}</p></a>
+            <div class="bidsList__parametrs">
+              <div class="bidsList__price">
+                <p>{{bids.price}} UAH</p>
+              </div>
+              <div class="bidsList__terms">
+                <p class="description">{{bids.terms}} дней</p>
+              </div>
+            </div>
+          </div>
+          <div class="bidList__main">
+            <div class="comment">
+              <p class="user">{{bids.comment}}</p>
+            </div>
+            <div class="contacts">
+              <a href="#"><img src="../../assets/img/telegram-logo.png" alt="Ой!"></a>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 

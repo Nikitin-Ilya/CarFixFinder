@@ -1,0 +1,40 @@
+.form{
+  //width: 50%;
+  margin:auto;
+  .label{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+  }
+  .btn{
+    float: left;
+  }
+  .alert{
+    margin-top: 15px;
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 550;
+    color: #00ae5a;
+    text-shadow: 0px 0px 2px #00000057;
+  }
+  .btn button{
+    font-family: "Roboto", sans-serif;
+    font-size: medium;
+    height: 50px;
+    width: 200px;
+    background-color: #00527E;
+    color: #fff;
+  }
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #fff;
+  width: 100%;
+  border: 1px solid #E0E0E0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}

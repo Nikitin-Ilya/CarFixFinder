@@ -5,7 +5,6 @@ import { OrdersService } from '../orders.service';
 import { AuthService } from '../auth.service';
 import { FlashMessagesService } from 'flash-messages-angular';
 import { Router } from '@angular/router';
-import { Console } from 'console';
 
 @Component({
   selector: 'app-create-order',
@@ -24,6 +23,10 @@ export class CreateOrderComponent implements OnInit {
   description!: String;
   descriptionHtml!: String;
   userLogin!: String;
+  category!: String;
+  /*categories = ['Двигун', 'Кузов', 'Підвіска', 'Гальмівна система', 'Інше'];
+  selectedCategory = this.categories[1];*/
+
 
   constructor(
     private ordersService: OrdersService,
@@ -42,6 +45,7 @@ export class CreateOrderComponent implements OnInit {
       name: this.name,
       description: this.rteObj.getText(),
       descriptionHtml: this.rteObj.value,
+      category: this.category,
       userLogin: this.authService.getUser().login
     };
     this.ordersService.createOrder(order).subscribe(data => {
@@ -61,4 +65,5 @@ export class CreateOrderComponent implements OnInit {
     });
     return;
   }
+
 }

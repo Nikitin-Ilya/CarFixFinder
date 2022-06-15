@@ -1,0 +1,168 @@
+.wrapper{
+  /*background: url("../../assets/img/home/passat.png") ((900px/1600px)*100%) 0px 0px 0px no-repeat;*/
+  background-color: #f4f5fa;
+  min-height: 1000px;
+  height: 100%;
+  padding-top: 1px;
+}
+
+.container1{
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  max-width: 1230px;
+  padding: 15px;
+  margin: 10px auto;
+  //height: 1200px;
+  background-color: #FFF;
+  font-family: "PT Sans", sans-serif;
+  display: flex;
+}
+
+hr{border-top: 1px solid #ebebeb; /*margin-top: 7px; margin-bottom: 7px;*/}
+
+.userInfo{
+  .userInfo__desc{
+    float: left;
+    width: 720px;
+    //max-width: 700px;
+    .userInfo__name{
+      margin-top: 10px;
+      font-size: 25px;
+      color: #555555;
+      font-weight: 700;
+    }
+    .userInfo__title{
+      margin-top: 15px;
+      font-size: 17px;
+      color: #777777;
+      font-weight: 400;
+      line-height: 15px;
+    }
+
+    .userInfo__rate{
+      margin-top: 20px;
+      p{
+        font-size: 20px;
+        font-weight: 400;
+        color: #555555;
+        line-height: 34px;
+      }
+      .userInfo__rate-show{
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+        .userInfo__averege-rate {
+          background-color: #f4f5fa;
+          border: 1px solid #ebebeb;
+          height: 60px;
+          width: 353px;
+          margin-right: 7px;
+          display: block;
+          padding-top: 10px;
+          border-radius: 5px;
+          .value {
+            font-size: 25px;
+            font-weight: 650;
+            color: #00ae5a;
+            line-height: 37px;
+          }
+        }
+        .userInfo__general-rate {
+          background-color: #f4f5fa;
+          border: 1px solid #ebebeb;
+          height: 60px;
+          width: 353px;
+          margin-left: 7px;
+          display: block;
+          padding-top: 10px;
+          border-radius: 5px;
+          .value {
+            font-size: 25px;
+            font-weight: 650;
+            color: #ffbb33;
+            line-height: 37px;
+          }
+        }
+
+        .title{
+          padding-right: 10px;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 21px;
+          color: rgba(17, 17, 17, 0.85);
+        }
+
+      }
+    }
+  }
+
+
+  .userInfo__foto{
+    width: 200px;
+    height: 200px;
+    float: right;
+    img{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+    .userInfo__addFoto{
+      opacity: 0;
+      visibility: hidden;
+      transition: .5s opacity, .5s visibility;
+      width: 198px;
+      height: 45px;
+      background-color: #555555c9;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 520;
+      text-align: center;
+      position:absolute;
+      margin-top: -123px;
+      border-radius: 5px;
+      margin-left: 1px;
+      text-shadow: 1px 1px 10px black;
+      .fa{
+        margin-right: 7px;
+      }
+      cursor: pointer;
+      p{
+        padding-top: 12px;
+      }
+    }
+  }
+  .userInfo__foto:hover .userInfo__addFoto{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .userInfo__resume {
+    margin-top: 20px;
+    float:left;
+    width: 100%;
+    p{
+      font-size: 20px;
+      font-weight: 400;
+      color: #555555;
+      line-height: 34px;
+    }
+    .userInfo__resume-info {
+      margin-top: 15px;
+      background-color: #f4f5fa;
+      border-radius: 5px;
+      min-height: 200px;
+      border: 1px solid #ebebeb;
+      padding: 20px 15px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 21px;
+      color: rgba(17, 17, 17, 0.85);
+    }
+    .userInfo__resume-text {
+    }
+  }
+
+
+}

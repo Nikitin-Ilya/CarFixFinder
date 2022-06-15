@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const UserProfile = require('../models/user-profile');
 const Order = require('../models/order');
+const Bid = require('../models/bid');
 const passport = require('passport');
 const config = require('../config/db');
 const jwt = require("jsonwebtoken");
 const multer  = require('multer');
+const bcrypt = require('bcryptjs');
 
 /*router.get('/reg', (req, res) => {
     res.send('Сторінка реєстрації');
@@ -13,21 +16,24 @@ const multer  = require('multer');
 
 router.post('/reg', (req, res) => {
     let newUser = new User({
-        name: req.body.name,
         email: req.body.email,
         login: req.body.login,
-        password: req.body.password,
-        foto: " "
+        password: req.body.password
     });
-    /*checkUser = false
-    User.getUserByLogin(newUser.login , (err, user) => {
-        if(err) throw err;
-        if (user) checkUser = true});
-    if (checkUser) {res.json({success: false, msg: "Користувач з таким логіном вже існує"}); return };*/
+    let newUserProfile = new UserProfile({
+        login: req.body.login,
+        name: null,
+        foto: "../../assets/img/header/profile-image.png",
+        title: null,
+        resume: null,
+        resumeHtml: null,
+        telegram: null
+    });
     User.addUser(newUser, (err, user) => {
-        if(err) res.json({success: false, msg: "Користувач не був доданий" + err});
+        if(err) res.json({success: false, msg: "Користувач не був доданий, користувач з таким логіном вже існує"});
         else res.json({success: true, msg: "Користувач був доданий!"});
     });
+    UserProfile.addUserProfile(newUserProfile, (err,user) => {});
 });
 
 router.post('/auth', (req, res) => {
@@ -64,23 +70,12 @@ router.post('/auth', (req, res) => {
 
 router.post('/create-order', (req, res) => {
     Data = new Date()
-    Time = new Date()
-    function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
-    }
-    function formatDate(date) {
-        return [
-          padTo2Digits(date.getDate()),
-          padTo2Digits(date.getMonth() + 1),
-          date.getFullYear(),
-        ].join('.');
-      }
     let newOrder = new Order({
         name: req.body.name,
         description: req.body.description,
         descriptionHtml: req.body.descriptionHtml,
-        date: formatDate(Data),/*Data.getDate() + "." + Data.getMonth() + "." + Data.getFullYear(),*/
-        time: Data.getHours() + ":" + Data.getMinutes(),
+        category: req.body.category,
+        date: Data,
         userLogin: req.body.userLogin
         /*userLogin: req.body.userLogin*/
     });
@@ -124,7 +119,7 @@ var store = multer.diskStorage({
         cb(null, file.originalname + fileObj[file.mimetype])
       }
     }
-  })
+})
 
 const upload = multer({ storage: store });
 
@@ -145,8 +140,8 @@ router.post('/setProfileImage', upload.single("filedata"), (req, res) => {
     if (fileObj[filedata.mimetype] == undefined) {
         console.log("Формат файлу не підтримується. Доступні формати: .png .jpeg .jpg"); }
     else {
-        User.findOneAndUpdate({login: filedata.originalname }, 
-            {foto: filedata.originalname + fileObj[filedata.mimetype] }, null, function (err, docs) {
+        UserProfile.findOneAndUpdate({login: filedata.originalname }, 
+            {foto: "../../assets/img/uploads/" + filedata.originalname + fileObj[filedata.mimetype] }, null, function (err, docs) {
             if (err){
                 console.log(err)
             }
@@ -155,8 +150,136 @@ router.post('/setProfileImage', upload.single("filedata"), (req, res) => {
             }
         });
     }
-    res.json({success: true, msg: "Зображення завантажено на сервер", image: filedata.originalname + fileObj[filedata.mimetype]});
+    res.json({success: true, msg: "Зображення завантажено на сервер", image: "../../assets/img/uploads/" + filedata.originalname + fileObj[filedata.mimetype]});
 }
+});
+
+router.post('/updateUserProfile', (req, res) => {
+    let user = new UserProfile({
+        login: req.body.userLogin,
+        name: req.body.name,
+        title: req.body.title,
+        resume: req.body.resume,
+        resumeHtml: req.body.resumeHtml,
+        telegram: req.body.telegram
+    });
+    UserProfile.findOneAndUpdate({login: user.login },
+        { $set:{name: user.name,
+                title: user.title,
+                resume: user.resume,
+                resumeHtml: user.resumeHtml,
+                telegram: user.telegram}}, null, function (err, docs) {
+        if (err){
+            console.log(err)
+            res.json({success: false, msg: "Помилка при збереженні даних"});
+        }
+        else{
+            console.log("БД оновлено: ", docs);
+            res.json({success: true, msg: "Дані успішно збережено"});
+        }
+    });
+});
+
+router.get('/getUsersProfile', async (req, res) => {
+    const usersProfile = await UserProfile.find({}).exec();
+    res.json(usersProfile);
+});
+
+router.post('/updateUserEmail', (req, res) => {
+    let user =({
+        login: req.body.login,
+        email: req.body.email
+    });
+    User.findOneAndUpdate({login: user.login },
+        { $set: { email: user.email }}, null, function (err, docs) {
+            if (err){
+                console.log(err)
+                res.json({success: false, msg: "Помилка"});
+            }
+            else{
+                console.log("БД оновлено: ", docs);
+                res.json({success: true, msg: "Електронну пошту збережено"});
+            }
+    });
+});
+
+router.post('/updateUserPassword', (req, res) => {
+    let user =({
+        login: req.body.login,
+        newPassword: req.body.newPassword,
+        oldPassword: req.body.oldPassword
+    });
+    User.getUserByLogin(user.login , (err, user1) => {
+        if(err) throw err;
+        if (!user1) 
+            return res.json({success: false, msg: "Користувача з таким логіном не було знайдено"});
+        User.comparePass(user.oldPassword, user1.password, (err, isMatch) => {
+            if(err) throw err;
+            if (isMatch){
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(user.newPassword, salt, (err, hash) => {
+                        if (err) throw err;
+                        user.newPassword = hash;
+                        console.log(user.newPassword)
+                        User.findOneAndUpdate({login: user.login },
+                            { $set: { password: user.newPassword }}, null, function (err, docs) {
+                                if (err){
+                                    console.log(err)
+                                    res.json({success: false, msg: "Помилка при збереженні паролю"});
+                                }
+                                else{
+                                    console.log("БД оновлено: ", docs);
+                                    res.json({success: true, msg: "Пароль успішно збережено"});
+                                }
+                        });
+                    });
+                });
+            } else return res.json({success: false, msg: "Старий пароль не вірний"});
+        });
+    });
+});
+
+router.post('/create-bid', (req, res) => {
+    Data = new Date()
+    /*function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+    }
+    function formatDate(date) {
+        return [
+          padTo2Digits(date.getDate()),
+          padTo2Digits(date.getMonth() + 1),
+          date.getFullYear(),
+        ].join('.');
+      }*/
+    let newBid = new Bid({
+        orderId: req.body.orderId,
+        price: req.body.price,
+        terms: req.body.terms,
+        comment: req.body.comment,
+        date: Data,
+        userLogin: req.body.userLogin
+        /*userLogin: req.body.userLogin*/
+    });
+    Bid.addBid(newBid, (err, user) => {
+        if(err) {
+            console.log(err);
+            res.json({success: false, msg: "Ставку не створено"});
+        }
+        else {
+            console.log("Ставка створена!");
+            res.json({success: true, msg: "Ставка створена!"});
+        }
+    });
+});
+
+router.get('/bids', async (req, res) => {
+    const bids = await Bid.find({}).exec();
+    res.json(bids);
+});
+
+router.post('/getBidsByOrderId', async (req, res) => {
+    const bids = await Bid.find({orderId: req.body.orderId}).exec();
+    res.json(bids);
 });
 
 module.exports = router;

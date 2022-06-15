@@ -15,7 +15,7 @@ export class RegComponent implements OnInit {
   login!: String;
   email!: String;
   password!: String;
-  
+
   constructor(
     private checkForm: CheckFormService,
     private flashMessages: FlashMessagesService,
@@ -28,19 +28,12 @@ export class RegComponent implements OnInit {
 
   userRegisterClick(){
     const user = {
-      name: this.name,
       email: this.email,
       login: this.login,
       password: this.password
     };
-    
-    if(!this.checkForm.checkName(user.name)){
-      this.flashMessages.show("Ім'я користувача не введено", {
-        cssClass: 'alert-danger',
-        timeout: 5000
-      },);
-      console.log("Ім'я користувача не введено");
-    } if(!this.checkForm.checkLogin(user.login)){
+
+    if(!this.checkForm.checkLogin(user.login)){
       this.flashMessages.show("Логін користувача не введено", {
         cssClass: 'alert-danger',
         timeout: 5000

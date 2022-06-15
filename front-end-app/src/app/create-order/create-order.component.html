@@ -10,6 +10,28 @@
 
         </ng-template>
       </ejs-richtexteditor><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Оберіть категорію</mat-label>
+        <mat-select [(value)]="category">
+          <mat-optgroup label="Ремонт">
+          <mat-option value="Ремонт двигунів">Ремонт двигунів</mat-option>
+          <mat-option value="Ремонт коробок передач">Ремонт коробок передач</mat-option>
+          <mat-option value="Ремонт ходової частини">Ремонт ходової частини</mat-option>
+          <mat-option value="Ремонт гальмівної системи">Ремонт гальмівної системи</mat-option>
+          <mat-option value="Ремонт паливної системи">Ремонт паливної системи</mat-option>
+          <mat-option value="Ремонт електропроводки">Ремонт електропроводки</mat-option>
+          <mat-option value="Ремонт інших частин авто">Ремонт інших частин авто</mat-option>
+          </mat-optgroup>
+          <mat-optgroup label="Кузовні роботи">
+          <mat-option value="Відновлення геометрії">Відновлення геометрії</mat-option>
+          <mat-option value="Рихтовка">Рихтовка</mat-option>
+          <mat-option value="Сварка">Сварка</mat-option>
+          <mat-option value="Покраска">Покраска</mat-option>
+          <mat-option value="Двигун">Інші види кузовних робіт</mat-option>
+          </mat-optgroup>
+          <mat-option value="Двигун">Інші види робіт</mat-option>
+        </mat-select>
+      </mat-form-field>
       <div class="btn">
         <button ej-button id="button" class="btn btn-succes" (click)="createOrderClick()">Створити замовлення</button>
       </div>

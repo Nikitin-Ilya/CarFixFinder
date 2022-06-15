@@ -1,0 +1,26 @@
+<div class="component">
+  <div class="form">
+    <form class="editEmail-form">
+      <span class="label">Email</span>
+      <div class="input">
+        <input type="text" [(ngModel)]="email" required name="email" placeholder="Введіть електронну пошту" class="form-control"><br>
+        <div class="btn">
+          <button ej-button id="button" class="btn btn-succes" (click)="updateEmailClick()">Зберегти</button>
+          <!--flash-messages class="alert"></flash-messages-->
+        </div>
+      </div>
+    </form>
+
+      <form class="editPassword-form">
+        <span class="label">Пароль</span>
+        <input type="password" [(ngModel)]="oldPassword" required name="oldPassword" placeholder="Введіть старий пароль" class="form-control"><br>
+        <input type="password" [(ngModel)]="newPassword" required name="newPassword" (ngModelChange)="comparePass()" placeholder="Введіть новий пароль" class="form-control password"><br>
+        <span class="error" [class.active]="active">Паролі не співпадають</span>
+        <input type="password" [(ngModel)]="newPassword2" required name="newPassword2" (ngModelChange)="comparePass()" placeholder="Введіть повторно новий пароль" class="form-control password"><br>
+        <div class="btn">
+          <button ej-button id="button" class="btn btn-succes" (click)="updatePasswordClick()">Змінити пароль</button>
+          <flash-messages class="alert"></flash-messages>
+        </div>
+      </form>
+  </div>
+</div>

@@ -61,6 +61,15 @@ export class AuthService {
     {headers: headers}).pipe(map((response: any) => response));
   }
 
+  getUsersProfile(){
+    /*return this.http.post('http://localhost:3000/account/getUserByLogin',
+    login).pipe(map((response: any) => response));*/
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.get('http://localhost:3000/account/getUsersProfile',
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
   getUserByLogin(login: string){
     return this.getUsers().pipe(
       // (+) before `id` turns the string into a number
@@ -75,5 +84,31 @@ export class AuthService {
       return res;
     });*/
   }
+
+  updateUser(user: any){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/updateUserProfile',
+    user,
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  updateEmail(user: any){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/updateUserEmail',
+    user,
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  updatePassword(user: any){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/updateUserPassword',
+    user,
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+
 
 }

@@ -46,7 +46,7 @@ export class AuthComponent implements OnInit {
           cssClass: 'alert-success',
           timeout: 4000
         },);*/
-        this.router.navigate(['/dashboard/' + this.login]);
+        this.router.navigate(['/dashboard/profile']);
         this.authService.storeUser(data.token, data.user);
       }
     });

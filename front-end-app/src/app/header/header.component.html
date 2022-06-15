@@ -25,7 +25,7 @@
               </div>
             </div>
             <!--=========================Кнопки авторизации============================-->
-            <a [routerLink]="['/dashboard', user]">
+            <a [routerLink]="['/dashboard/profile']">
               <div *ngIf="authService.isLoggedIn()" class="header__profile">
                 <img src="../../assets/img/header/profile-image.png" alt="Ой!">
               </div>

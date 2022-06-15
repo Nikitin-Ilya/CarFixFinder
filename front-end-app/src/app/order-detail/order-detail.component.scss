@@ -2,6 +2,7 @@
   font-family: "PT Sans", sans-serif;
 }
 
+@import '~font-awesome/scss/font-awesome';
 $red: #D62828;
 $blue: #003049;
 $orange: #F77F00;
@@ -29,7 +30,6 @@ $black: #000;
 .orderDescription{
   max-width: 900px;
   margin-top: 20px;
-  margin-bottom: 100px;
   font-size: 15px;
   border: 1px solid #eeeeee;
   background-color: #eeeeee;
@@ -73,4 +73,210 @@ $black: #000;
       text-decoration: underline;
     }
   }
+}
+
+
+.bids {
+  .bidButton{
+    display: block;
+    margin-top: 10px;
+    button{
+
+      font-family: "Roboto", sans-serif;
+      font-size: medium;
+      height: 40px;
+      width: 180px;
+      background-color: #0088CC;
+      color: #fff;
+      border-radius: 10px;
+      border: 1px solid #ebebeb;
+      .fa{
+        padding-right: 10px;
+    }
+    }
+    button:hover{
+      background-color: #006da3;
+    }
+  }
+
+  .bids__create{
+    display: none;
+    margin-left: 40px;
+    .label{
+      display: inline-block;
+      font-family: "PT Sans", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 21px;
+      color: rgba(17, 17, 17, 0.85);
+      //margin-bottom: 5px;
+    }
+    .placeholder.price{
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 21px;
+      color: rgba(17, 17, 17, 0.85);
+    }
+    .placeholder.terms{
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      color: #5f5f5f;
+      margin-left: 159px;
+    }
+    .placeholder.terms{
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      color: #5f5f5f;
+      margin-left: 159px;
+    }
+    .placeholder.comment{
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      color: #5f5f5f;
+      margin-left: 159px;
+    }
+    button{
+      margin-left: 157px;
+    }
+  }
+  .bids__create input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #fff;
+    //width: 100%;
+    border: 1px solid #E0E0E0;
+    margin: 0 0 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-left: 20px;
+  }
+  .bids__create textarea {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #fff;
+    //width: 100%;
+    border: 1px solid #E0E0E0;
+    margin: 0 0 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-left: 20px;
+    width: 660px;
+    resize: none;
+    height: 150px;
+  }
+  .bids__create input.terms {
+    margin: 0 0 0 20px;
+  }
+  .bids__create textarea.comment {
+    margin: 20px 0 0 20px;
+  }
+  .label.price{
+    margin-left: 63px;
+  }
+  .label.comment{
+    margin-left: 56px;
+  }
+  .bids__create input.price{
+    width: 150px;
+  }
+  .bids__create input.terms{
+    width: 150px;
+  }
+  /*.bids__create input.comment{
+    width: 660px;
+  }*/
+  .bids__create.active{
+    display: block;
+  }
+  max-width: 900px;
+  margin-top: 20px;
+  background-color: #f4f5fa;
+  border-radius: 5px;
+  min-height: 200px;
+  border: 1px solid #ebebeb;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+  color: rgba(17, 17, 17, 0.85);
+  .bids__header{
+    display: flex;
+    justify-content: space-between;
+    p{
+      font-size: 20px;
+      font-weight: 400;
+      color: #555555;
+      line-height: 34px;
+    }
+    .bidButton.active{
+      display: none;
+    }
+  }
+
+  .bidsList{
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid #e4e4e4;
+    margin-top: 20px;
+
+    .bidsList__header{
+      display:flex;
+      justify-content: space-between;
+      .user{
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #1F689E;
+      }
+      .user:hover{
+        text-decoration: underline;
+      }
+      .bidsList__parametrs{
+        display: flex;
+      }
+      .bidsList__price{
+        height: 20px;
+        background-color: #00AE5A;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 11px;
+        line-height: 17px;
+        font-weight: 700;
+        padding: 0 10px 0 10px;
+      }
+      .bidsList__terms{
+        margin-left: 10px;
+        height: 20px;
+        background-color: #0088CC;
+        border-radius: 5px;
+        font-size: 11px;
+        line-height: 17px;
+        font-weight: 700;
+        color: #fff;
+        font-size: 11px;
+        line-height: 17px;
+        font-weight: 700;
+        padding: 0 10px 0 10px;
+      }
+    }
+    .bidList__main{
+      display: flex;
+      justify-content: space-between;
+    }
+    .contacts{
+      //float: right;
+      img{
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+
 }

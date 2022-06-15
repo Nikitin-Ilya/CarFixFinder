@@ -2,7 +2,6 @@
     <div (submit)="userRegisterClick()" class="form">
       <flash-messages class="alert-danger"></flash-messages>
       <form class="login-form">
-        <input type="text" [(ngModel)]="name" name="name" placeholder="Введіть ім'я" class="form-control"><br>
         <input type="text" [(ngModel)]="login" name="login" placeholder="Введіть логін" class="form-control"><br>
         <input type="email" [(ngModel)]="email" name="email" placeholder="Введіть email" class="form-control"><br>
         <input type="password" [(ngModel)]="password" name="password" placeholder="Введіть пароль" class="form-control"><br>

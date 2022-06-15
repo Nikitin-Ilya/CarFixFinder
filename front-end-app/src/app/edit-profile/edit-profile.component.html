@@ -1,0 +1,22 @@
+<div class="component">
+  <div class="form">
+    <form class="createOrder-form">
+      <span class="label">Ім'я користувача</span>
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Введіть ім'я" class="form-control"><br>
+      <span class="label">Девіз</span>
+      <input type="text" [(ngModel)]="title" name="title" placeholder="Введіть девіз" class="form-control"><br>
+      <span class="label">Посилання на Telegram для зв'язку з вами</span>
+      <input type="text" [(ngModel)]="telegram" name="telegram" placeholder="Введіть посилання на ваш профіль в Telegram" class="form-control"><br>
+      <span class="label">Резюме</span>
+      <ejs-richtexteditor #defaultRTE [insertImageSettings]='insertImageSettings'>
+        <ng-template>
+        </ng-template>
+      </ejs-richtexteditor><br>
+      <div class="btn">
+        <button ej-button id="button" class="btn btn-succes" (click)="updateUserClick()">Зберегти</button>
+        <flash-messages class="alert"></flash-messages>
+      </div>
+    </form>
+  </div>
+</div>
+

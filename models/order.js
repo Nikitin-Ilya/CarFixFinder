@@ -13,12 +13,12 @@ const OrderSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    date:{
+    category:{
         type: String,
         required: true
     },
-    time:{
-        type: String,
+    date:{
+        type: Date,
         required: true
     },
     userLogin:{

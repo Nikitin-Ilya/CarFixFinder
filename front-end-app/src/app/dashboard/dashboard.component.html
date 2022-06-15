@@ -1,26 +1,30 @@
 <div class="wrapper">
-  <div class="container">
-    <h1>Кабінет користувача</h1>
-    <aside class="userInfo">
-      <div class="userInfo__foto">
-        <img src="{{imagePath}}" alt="Ой!">
-        <form action="/setProfileImage" method="post" enctype="multipart/form-data">
-          <input hidden="true" type="file" name="filedata" id="file-input" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event)">
-          <label for="file-input">
-              <div mat-raised-button class="btn" class="userInfo__addFoto">
-                <p>
-                  Завантажити фото
-                </p>
-              </div>
-          </label>
-        </form>
+  <div class="container1">
+
+    <aside>
+      <div class="dashboardMenu">
+        <nav>
+          <ul class="header__list">
+            <div [routerLink]="['/dashboard/profile']" class="header__element first">
+              <li><a class="header__link"><i class="fa fa-address-card fa-lg"></i>Профіль</a></li>
+            </div>
+            <div [routerLink]="['/dashboard/edit-profile']" class="header__element">
+              <li><a class="header__link"><i class="fa fa-cog fa-lg"></i>Налаштування профілю</a></li>
+            </div>
+            <div [routerLink]="['/dashboard/user-data']" class="header__element">
+              <li><a class="header__link"><i class="fa fa-pencil-square-o fa-lg"></i>Особисті дані</a></li>
+            </div>
+          </ul>
+        </nav>
       </div>
-      <div class="userInfo__name">
-        <p>{{login}}</p>
+
+      <div class="exitButton">
+        <button (click)="logoutUser()"><i class="fa fa-sign-out" aria-hidden="true"></i>Вихід з облікового запису</button>
       </div>
     </aside>
-    <div class="exitButton">
-      <button (click)="logoutUser()">Вихід</button>
+
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

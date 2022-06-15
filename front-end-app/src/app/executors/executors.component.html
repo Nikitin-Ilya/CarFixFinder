@@ -1,2 +1,19 @@
-<h1>Сторінка виконавців</h1>
+<div class="wrapper">
+  <div class="container">
+    <div class="orderInfo">
+      <h1 class="orderInfo__desc">Всього виконавців</h1>
+        <div class="orderInfo__count" *ngIf="(usersProfiles | async) let usersProfiles">
+          <p>{{usersProfiles.length}}</p></div>
+    </div>
 
+    <main class="ordersList">
+      <div class="ordersList__order" *ngFor="let usersProfiles of usersProfiles | async">
+        <div class="userInfo__foto">
+          <img src="{{usersProfiles.foto}}" alt="Ой!">
+        </div>
+        <a class="orderName" [routerLink]="['/executors', usersProfiles.login]"><p>{{usersProfiles.name}}</p></a>
+        <p class="description">{{usersProfiles.title}}</p>
+      </div>
+    </main>
+  </div>
+</div>

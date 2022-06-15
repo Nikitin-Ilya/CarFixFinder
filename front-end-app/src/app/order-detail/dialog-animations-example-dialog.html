@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Повідомлення</h1>
+<div mat-dialog-content>
+  Ви вже створили ставку на це замовлення
+</div>
+<div class="button" mat-dialog-actions>
+  <button (click)="onNoClick()">Ок</button>
+</div>
+<style>
+  .button{
+    /*margin-top: 10px;
+    margin-left: 70px;*/
+    float: right;
+  }
+  button{
+    width: 50px;
+    height:40px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(211, 211, 211);
+  }
+  button:hover{
+    background-color: rgb(236, 236, 236);
+  }
+</style>

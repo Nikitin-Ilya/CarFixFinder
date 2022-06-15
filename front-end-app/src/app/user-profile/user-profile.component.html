@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div class="container1">
+
+    <div class="component">
+      <div class="userInfo">
+        <!------------------------Desc------------------------>
+        <div class="userInfo__desc">
+          <div class="userInfo__name">
+            <p>{{name}}</p>
+          </div>
+
+          <div class="userInfo__title">
+            <p>{{title}}</p>
+          </div>
+
+          <div class="userInfo__rate">
+            <p>Рейтинг</p>
+            <hr>
+            <div class="userInfo__rate-show">
+              <div class="userInfo__averege-rate">
+                <span class="title">Середній рейтинг:</span>
+                <span class="value">8 из 10</span>
+              </div>
+              <div class="userInfo__general-rate">
+                <span class="title">Загальний рейтинг:</span>
+                <span class="value">240</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!------------------------Foto------------------------>
+        <div class="userInfo__foto">
+          <img src="{{imagePath}}" alt="Ой!">
+        </div>
+
+        <div class="userInfo__resume">
+          <p>Резюме</p>
+          <hr>
+          <div class="userInfo__resume-info">
+            <div [innerHTML]="resumeHtml" class="userInfo__resume-text">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

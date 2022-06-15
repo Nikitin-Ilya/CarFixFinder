@@ -30,10 +30,34 @@ export class OrdersService {
       map((orders: any) => orders.find((order: any) => order._id === +id)!)
     );
 
+
     /*let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
     return this.http.get('http://localhost:3000/account/orders',
     {headers: headers}).pipe(map((orders: any) => orders.find((order: any) => order._id === +id)!));*/
+  }
+
+  createBid(bid: any){
+    console.log(bid);
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/create-bid',
+    bid,
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  getBids(){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.get('http://localhost:3000/account/bids',
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  getBidsByOrderId(orderInfo: any){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/getBidsByOrderId',orderInfo,
+    {headers: headers}).pipe(map((response: any) => response));
   }
 
 }
