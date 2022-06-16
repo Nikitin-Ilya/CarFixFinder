@@ -64,14 +64,12 @@ export class OrderDetailComponent implements OnInit {
 
     this.authService.getUsersProfile().forEach(element => {
       element.forEach((value: any) => {
-        this.bids.forEach(element => {
-          element.forEach((value: any) => {
-            console.log(value)
-            if(value.login===this.route.snapshot.params['login'])
+        this.bids.forEach(bid => {
+          element.forEach((bidvalue: any) => {
+            if(bidvalue.userLogin===value.login)
             {
 
             }
-            if(value.userLogin===this.authService.getUser().login) {this.disable = true;}
           });
         });
       });
