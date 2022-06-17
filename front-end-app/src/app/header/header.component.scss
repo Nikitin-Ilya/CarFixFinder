@@ -92,6 +92,7 @@ $black: #000;
 
 .header__auth{
   display: flex;
+  margin-left: 40px;
 }
 
 .header__lang{
@@ -123,8 +124,11 @@ $black: #000;
   background: $blue;
   border-radius:20px 0 0 20px;
   h5{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
     padding-top: 7px;
-    padding-left: 10px;
+    padding-left: 15px;
   }
 }
 .header__signin:hover{
@@ -142,8 +146,11 @@ $black: #000;
   background: $red;
   border-radius:20px 20px 20px 20px;
   h5{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
     padding-top: 7px;
-    padding-left: 10px;
+    padding-left: 20px;
   }
 }
 .header__signup:hover{

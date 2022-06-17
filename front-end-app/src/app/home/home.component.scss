@@ -40,6 +40,8 @@ section{
   color: #696e7e;
   .text {
     font-size: 24px;
+    line-height: 24px;
+    font-weight: 400;
     padding-top: 10px;
     margin-bottom: 0;
   }
@@ -58,7 +60,7 @@ section{
     color: #fefefe;
     line-height: 24px;
     font-weight: 700;
-   font-size: 18px;
+    font-size: 18px;
   }
 }
 .offer__button:hover{
@@ -107,6 +109,7 @@ section{
   .offer__desc {
     .text {
       font-size: 18px;
+
     }
   }
 }
@@ -223,7 +226,7 @@ section{
       .button-text {
         color: #fefefe;
         line-height: 24px;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 18px;
       }
     }
@@ -312,7 +315,7 @@ section{
       .button-text {
         color: #fefefe;
         line-height: 24px;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 18px;
       }
     }
