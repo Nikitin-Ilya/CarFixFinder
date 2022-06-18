@@ -10,12 +10,18 @@ $white: #fff;
 $black: #000;
 
 .wrapper{
-  /*background: url("../../assets/img/home/passat.png") ((900px/1600px)*100%) 0px 0px 0px no-repeat;*/
+  min-height: 100vh;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.911) url("../../assets/img/background2.jpg") repeat;
+  background-blend-mode: color;
 }
 .container{
   max-width: 1230px;
   padding: 0 10px;
   margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.397);
+  min-height: 100vh;
+  height: 100%;
 }
 
 .userInfo__foto{
@@ -69,9 +75,9 @@ $black: #000;
 }
 
 .ordersList{
-  width: 70%;
-  margin-left: 30%;
-  margin-top: 40px;
+  width: 80%;
+  /*margin-left: 30%;
+  margin-top: 40px;*/
 }
 
 .ordersList__order {
@@ -110,5 +116,45 @@ $black: #000;
     color: #2173AF;
     padding-top: 10px;
     padding-left: 10px;
+  }
+}
+
+.page{
+  display: flex;
+  .filters{
+    /*border: 1px solid #e6e6e6;
+    background-color: #F2F2F2;*/
+    width: 20%;
+    margin-right: 10px;
+    section{
+      border: 1px solid #e6e6e6;
+    }
+    mat-expansion-panel{
+      //margin-bottom: 10px;\
+      border-radius: 0px;
+      border-bottom: 1px solid #e6e6e6;
+      box-shadow: none;
+    }
+    .another{
+      margin: 10px 10px 10px 25px;
+    }
+    .createOrder{
+      margin-top: 50px;
+      margin-bottom: 30px;
+      .createOrder__title{
+        text-align: center;
+        margin-bottom: 3px;
+        color: #777777;
+      }
+      .createOrder__button{
+        width: 100%;
+        height: 40px;
+        background-color: rgba(41, 83, 197, 0.76); //#ec3e3e;
+        font-size: 15px;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 10px 10px 10px 10px;
+      }
+    }
   }
 }

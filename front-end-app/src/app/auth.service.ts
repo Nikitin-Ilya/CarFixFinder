@@ -109,6 +109,21 @@ export class AuthService {
     {headers: headers}).pipe(map((response: any) => response));
   }
 
+  createComment(bid: any){
+    console.log(bid);
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/create-comment',
+    bid,
+    {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  getCommentsByLogin(orderInfo: any){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.post('http://localhost:3000/account/getCommentsByLogin',orderInfo,
+    {headers: headers}).pipe(map((response: any) => response));
+  }
 
 
 }

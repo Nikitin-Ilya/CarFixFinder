@@ -21,6 +21,7 @@ export class EditProfileComponent implements OnInit {
   title!: String;
   resume!: String;
   resumeHtml!: String;
+  category!: String;
   telegram!: String;
 
   constructor(
@@ -57,6 +58,7 @@ export class EditProfileComponent implements OnInit {
       resume: this.rteObj.getText(),
       resumeHtml: this.rteObj.value,
       userLogin: this.authService.getUser().login,
+      category: this.category,
       telegram: this.telegram
     };
     this.authService.updateUser(user).subscribe(data => {

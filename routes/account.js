@@ -4,6 +4,7 @@ const User = require('../models/user');
 const UserProfile = require('../models/user-profile');
 const Order = require('../models/order');
 const Bid = require('../models/bid');
+const Review = require('../models/review');
 const passport = require('passport');
 const config = require('../config/db');
 const jwt = require("jsonwebtoken");
@@ -27,6 +28,7 @@ router.post('/reg', (req, res) => {
         title: null,
         resume: null,
         resumeHtml: null,
+        category: null,
         telegram: null
     });
     User.addUser(newUser, (err, user) => {
@@ -161,6 +163,7 @@ router.post('/updateUserProfile', (req, res) => {
         title: req.body.title,
         resume: req.body.resume,
         resumeHtml: req.body.resumeHtml,
+        category: req.body.category,
         telegram: req.body.telegram
     });
     UserProfile.findOneAndUpdate({login: user.login },
@@ -168,7 +171,8 @@ router.post('/updateUserProfile', (req, res) => {
                 title: user.title,
                 resume: user.resume,
                 resumeHtml: user.resumeHtml,
-                telegram: user.telegram}}, null, function (err, docs) {
+                telegram: user.telegram,
+                category: user.category,}}, null, function (err, docs) {
         if (err){
             console.log(err)
             res.json({success: false, msg: "Помилка при збереженні даних"});
@@ -280,6 +284,32 @@ router.get('/bids', async (req, res) => {
 router.post('/getBidsByOrderId', async (req, res) => {
     const bids = await Bid.find({orderId: req.body.orderId}).exec();
     res.json(bids);
+});
+
+router.post('/create-comment', (req, res) => {
+    Data = new Date()
+    let newBid = new Review({
+        userProfileLogin: req.body.userProfileLogin,
+        comment: req.body.comment,
+        date: Data,
+        userCommentLogin: req.body.userCommentLogin
+        /*userLogin: req.body.userLogin*/
+    });
+    Review.addReview(newBid, (err, user) => {
+        if(err) {
+            console.log(err);
+            res.json({success: false, msg: "Відгук не створено"});
+        }
+        else {
+            console.log("Ставка створена!");
+            res.json({success: true, msg: "Відгук створено"});
+        }
+    });
+});
+
+router.post('/getCommentsByLogin', async (req, res) => {
+    const Reviews = await Review.find({userProfileLogin: req.body.userProfileLogin}).exec();
+    res.json(Reviews);
 });
 
 module.exports = router;

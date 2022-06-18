@@ -39,6 +39,20 @@ export class OrdersComponent implements OnInit {
       this.order = orders as OrderDataService[];
       this.filteredProducts=orders as OrderDataService[];
     });
+
+
+    /*this.authService.getUsersProfile().forEach(element => {
+      element.forEach((value: any) => {
+        if(value.login===this.route.snapshot.params['login'])
+        {
+          if(value.foto!=null) {this.imagePath = value.foto;}
+          this.login = value.login;
+          this.name = value.name;
+          this.title = value.title;
+          this.resumeHtml = value.resumeHtml;
+        }
+      });
+    });*/
   }
 
   createOrder(){

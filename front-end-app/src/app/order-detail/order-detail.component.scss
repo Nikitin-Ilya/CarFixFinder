@@ -11,16 +11,36 @@ $white: #fff;
 $black: #000;
 
 .wrapper{
+  background-color: #f4f5fa;
+  height: 100%;
+  padding-top: 1px;
 }
 
 .container{
-  max-width: 1230px;
+  /*max-width: 1230px;
   padding: 0 10px;
   margin: 0 auto;
+  min-height: 100vh;
+  height: 100%;*/
+
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  max-width: 1230px;
+  padding: 15px;
+  margin: 10px auto;
+
+  min-height: 100vh;
+  height: 100%;
+  background-color: #FFF;
+  /*background-color: rgba(255, 255, 255, 0.397);
+  min-height: 100vh;
+  height: 100%;*/
+
+
 }
 
 .orderName{
-  margin-top: 30px;
+  //margin-top: 30px;
   font-size: 30px;
   font-weight: 700;
   color: #555555;
@@ -28,7 +48,7 @@ $black: #000;
 }
 
 .orderDescription{
-  max-width: 900px;
+  //max-width: 900px;
   margin-top: 20px;
   font-size: 15px;
   border: 1px solid #eeeeee;
@@ -194,7 +214,7 @@ $black: #000;
   .bids__create.active{
     display: block;
   }
-  max-width: 900px;
+  //max-width: 900px;
   margin-top: 20px;
   background-color: #f4f5fa;
   border-radius: 5px;

@@ -1,51 +1,86 @@
 <div class="wrapper">
   <div class="container1">
 
-    <div class="component">
-      <div class="userInfo">
-        <!------------------------Desc------------------------>
-        <div class="userInfo__desc">
-          <div class="userInfo__name">
-            <p>{{name}}</p>
+
+    <div class="user">
+      <div class="component">
+        <div class="userInfo">
+          <!------------------------Desc------------------------>
+          <div class="userInfo__desc">
+            <div class="userInfo__name">
+              <p>{{name}}</p>
+            </div>
+
+            <div class="userInfo__title">
+              <p>{{title}}</p>
+            </div>
+
+            <div class="userInfo__rate">
+              <p>Рейтинг</p>
+              <hr>
+              <div class="userInfo__rate-show">
+                <div class="userInfo__averege-rate">
+                  <span class="title">Середній рейтинг:</span>
+                  <span class="value">8 из 10</span>
+                </div>
+                <div class="userInfo__general-rate">
+                  <span class="title">Загальний рейтинг:</span>
+                  <span class="value">240</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="userInfo__title">
-            <p>{{title}}</p>
+
+          <!------------------------Foto------------------------>
+          <div class="userInfo__foto">
+            <img src="{{imagePath}}" alt="Ой!">
           </div>
 
-          <div class="userInfo__rate">
-            <p>Рейтинг</p>
+          <div class="userInfo__resume">
+            <p>Резюме</p>
             <hr>
-            <div class="userInfo__rate-show">
-              <div class="userInfo__averege-rate">
-                <span class="title">Середній рейтинг:</span>
-                <span class="value">8 из 10</span>
-              </div>
-              <div class="userInfo__general-rate">
-                <span class="title">Загальний рейтинг:</span>
-                <span class="value">240</span>
+            <div class="userInfo__resume-info">
+              <div [innerHTML]="resumeHtml" class="userInfo__resume-text">
               </div>
             </div>
           </div>
+
         </div>
-
-
-        <!------------------------Foto------------------------>
-        <div class="userInfo__foto">
-          <img src="{{imagePath}}" alt="Ой!">
-        </div>
-
-        <div class="userInfo__resume">
-          <p>Резюме</p>
-          <hr>
-          <div class="userInfo__resume-info">
-            <div [innerHTML]="resumeHtml" class="userInfo__resume-text">
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
+
+
+
+    <div class="bids">
+      <form class="bids__create" [class.active]="active">
+        <p class="label comment">Відгук *</p>
+        <textarea type="text" [(ngModel)]="comment" required name="comment" placeholder="Напишіть відгук про виконавця" class="comment"></textarea><br>
+        <div class="bidButton">
+          <button (click)="createComment()"><i class="fa fa-plus-square fa-lg"></i>Додати відгук</button>
+        </div>
+      </form>
+      <div class="bids__header">
+        <p>Відгуки</p>
+        <div class="bidButton" [class.active]="active">
+          <button class="addButton" (click)="addComment()"><i class="fa fa-plus-square fa-lg"></i>Створити відгук</button>
+        </div>
+      </div>
+      <div class="bidsList" *ngFor="let bids of bids | async">
+        <div class="bidsList__header">
+          <a href="#"><p class="user">{{bids.userCommentLogin}}</p></a>
+        </div>
+        <div class="bidList__main">
+          <div class="comment">
+            <p class="user">{{bids.comment}}</p>
+          </div>
+          <div class="contacts">
+            <a href="#"><img src="../../assets/img/telegram-logo.png" alt="Ой!"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 </div>

@@ -4,14 +4,16 @@
   .label{
     font-family: "Roboto", sans-serif;
     font-size: 20px;
+    margin-right: 20px;
   }
   .btn{
-    float: left;
+    //float: left;
   }
   .alert{
-    margin-top: 15px;
-    float: left;
-    margin-left: 10px;
+    width: 500px;
+    margin-top: 10px;
+    //float: left;
+    margin-left: 20px;
     font-size: 18px;
     font-weight: 550;
     color: #00ae5a;
@@ -24,6 +26,8 @@
     width: 200px;
     background-color: #00527E;
     color: #fff;
+    float: left;
+    margin-right: 20px;
   }
 }
 

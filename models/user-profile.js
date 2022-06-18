@@ -22,6 +22,9 @@ const UserProfileSchema = mongoose.Schema({
     resumeHtml: {
         type: String
     },
+    category: {
+        type: String
+    },
     telegram: {
         type: String
     }

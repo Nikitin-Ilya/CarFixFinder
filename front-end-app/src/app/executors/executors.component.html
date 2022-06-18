@@ -6,14 +6,67 @@
           <p>{{usersProfiles.length}}</p></div>
     </div>
 
-    <main class="ordersList">
-      <div class="ordersList__order" *ngFor="let usersProfiles of usersProfiles | async">
-        <div class="userInfo__foto">
-          <img src="{{usersProfiles.foto}}" alt="Ой!">
-        </div>
-        <a class="orderName" [routerLink]="['/executors', usersProfiles.login]"><p>{{usersProfiles.name}}</p></a>
-        <p class="description">{{usersProfiles.title}}</p>
+    <div class="page">
+      <div class="filters">
+        <section class="example-section">
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false" [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Ремонт
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <span class="example-list-section">
+                <ul>
+                  <li>
+                    <mat-checkbox [(ngModel)]="filters.enginefix" [color]="task.color" (ngModelChange)="filterChange()">Ремонт двигунів</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.carBodyfix" [color]="task.color" (ngModelChange)="filterChange()">Ремонт коробок передач</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.suspensionfix" [color]="task.color" (ngModelChange)="filterChange()">Ремонт ходової частини</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.brakeSystemfix" [color]="task.color" (ngModelChange)="filterChange()">Ремонт гальмівної системи</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.fuelSystemfix" [color]="task.color" (ngModelChange)="filterChange()">Ремонт паливної системи</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.wiringfix" [color]="task.color" (ngModelChange)="filterChange()">Ремонт електропроводки</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.anotherfix" [color]="task.color" (ngModelChange)="filterChange()">Ремонт інших частин авто</mat-checkbox><br>
+                  </li>
+                </ul>
+                </span>
+          </mat-expansion-panel>
+
+          <!------------------------------------------------------------------------>
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false" [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Кузовні роботи
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <span class="example-list-section">
+                <ul>
+                  <li>
+                    <mat-checkbox [(ngModel)]="filters.geometryBodywork" [color]="task.color" (ngModelChange)="filterChange()">Відновлення геометрії</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.straighteningBodywork" [color]="task.color" (ngModelChange)="filterChange()">Рихтовка</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.weldingBodywork" [color]="task.color" (ngModelChange)="filterChange()">Сварка</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.paintingBodywork" [color]="task.color" (ngModelChange)="filterChange()">Покраска</mat-checkbox><br>
+                    <mat-checkbox [(ngModel)]="filters.anotherBodywork" [color]="task.color" (ngModelChange)="filterChange()">Інші види кузовних робіт</mat-checkbox><br>
+                  </li>
+                </ul>
+                </span>
+          </mat-expansion-panel>
+
+          <mat-checkbox class="another" [(ngModel)]="filters.another" [color]="task.color" (ngModelChange)="filterChange()">Інші види робіт</mat-checkbox><br>
+        </section>
       </div>
-    </main>
+        <main class="ordersList">
+          <div class="ordersList__order" *ngFor="let usersProfiles of filteredProducts">
+            <div class="userInfo__foto">
+              <img src="{{usersProfiles.foto}}" alt="Ой!">
+            </div>
+            <a class="orderName" [routerLink]="['/executors', usersProfiles.login]"><p>{{usersProfiles.name}}</p></a>
+            <p class="description">{{usersProfiles.title}}</p>
+          </div>
+        </main>
+
+    </div>
+
   </div>
 </div>

@@ -10,12 +10,18 @@ $white: #fff;
 $black: #000;
 
 .wrapper{
-  /*background: url("../../assets/img/home/passat.png") ((900px/1600px)*100%) 0px 0px 0px no-repeat;*/
+  min-height: 100vh;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.911) url("../../assets/img/background2.jpg") repeat;
+  background-blend-mode: color;
 }
 .container{
   max-width: 1230px;
   padding: 0 10px;
   margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.397);
+  min-height: 100vh;
+  height: 100%;
 }
 
 .orderInfo{
@@ -52,7 +58,7 @@ $black: #000;
   min-height: 100px;
   //font-family: "PT Sans", sans-serif;
   outline: 0;
-  background: #f2f2f2;
+  background: #f2f2f2;//#f2f2f2  e6fcff   e9efff
   width: 100%;
   border: 1px solid #E0E0E0;
   margin: 0 0 15px;
@@ -96,6 +102,7 @@ $black: #000;
     margin-right: 10px;
     section{
       border: 1px solid #e6e6e6;
+      background-color: #fff;
     }
     mat-expansion-panel{
       //margin-bottom: 10px;\
@@ -117,7 +124,7 @@ $black: #000;
       .createOrder__button{
         width: 100%;
         height: 40px;
-        background-color: rgba(41, 83, 197, 0.76); //#ec3e3e;
+        background-color: #5C7CD3; //#ec3e3e;
         font-size: 15px;
         color: #fff;
         font-weight: 600;
