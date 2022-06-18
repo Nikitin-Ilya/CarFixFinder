@@ -1,8 +1,13 @@
 hr{border-top: 1px solid #ebebeb; /*margin-top: 7px; margin-bottom: 7px;*/}
 
 .userInfo{
-  .userInfo__desc{
+  //display: flex;
+  .indo{
     float: left;
+    width: 720px;
+  }
+  .userInfo__desc{
+    //float: left;
     width: 720px;
     //max-width: 700px;
     .userInfo__name{
@@ -79,6 +84,33 @@ hr{border-top: 1px solid #ebebeb; /*margin-top: 7px; margin-bottom: 7px;*/}
   }
 
 
+  .userInfo__resume {
+    margin-top: 20px;
+    //float:left;
+    //width: 720px;
+    //width: 100%;
+    p{
+      font-size: 20px;
+      font-weight: 400;
+      color: #555555;
+      line-height: 34px;
+    }
+    .userInfo__resume-info {
+      margin-top: 15px;
+      background-color: #f4f5fa;
+      border-radius: 5px;
+      min-height: 200px;
+      border: 1px solid #ebebeb;
+      padding: 20px 15px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 21px;
+      color: rgba(17, 17, 17, 0.85);
+    }
+    .userInfo__resume-text {
+    }
+  }
+
   .userInfo__foto{
     width: 200px;
     height: 200px;
@@ -118,31 +150,7 @@ hr{border-top: 1px solid #ebebeb; /*margin-top: 7px; margin-bottom: 7px;*/}
     visibility: visible;
   }
 
-  .userInfo__resume {
-    margin-top: 20px;
-    float:left;
-    width: 100%;
-    p{
-      font-size: 20px;
-      font-weight: 400;
-      color: #555555;
-      line-height: 34px;
-    }
-    .userInfo__resume-info {
-      margin-top: 15px;
-      background-color: #f4f5fa;
-      border-radius: 5px;
-      min-height: 200px;
-      border: 1px solid #ebebeb;
-      padding: 20px 15px;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 21px;
-      color: rgba(17, 17, 17, 0.85);
-    }
-    .userInfo__resume-text {
-    }
-  }
+
 
 
 }
