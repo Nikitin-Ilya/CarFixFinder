@@ -57,7 +57,7 @@ export class AuthService {
     login).pipe(map((response: any) => response));*/
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.get('http://localhost:3000/account/getUsers',
+    return this.http.get('account/getUsers',
     {headers: headers}).pipe(map((response: any) => response));
   }
 
@@ -66,7 +66,7 @@ export class AuthService {
     login).pipe(map((response: any) => response));*/
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.get('http://localhost:3000/account/getUsersProfile',
+    return this.http.get('account/getUsersProfile',
     {headers: headers}).pipe(map((response: any) => response));
   }
 
@@ -77,7 +77,7 @@ export class AuthService {
   }
 
   setImage(data: any) {
-    return this.http.post('http://localhost:3000/account/setProfileImage',
+    return this.http.post('account/setProfileImage',
     data).pipe(map((response: any) => response));
     /*.subscribe(res => {
       console.log(res);
@@ -88,7 +88,7 @@ export class AuthService {
   updateUser(user: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/updateUserProfile',
+    return this.http.post('account/updateUserProfile',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -96,7 +96,7 @@ export class AuthService {
   updateEmail(user: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/updateUserEmail',
+    return this.http.post('account/updateUserEmail',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -104,7 +104,7 @@ export class AuthService {
   updatePassword(user: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/updateUserPassword',
+    return this.http.post('account/updateUserPassword',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -113,7 +113,7 @@ export class AuthService {
     console.log(bid);
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/create-comment',
+    return this.http.post('account/create-comment',
     bid,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -121,7 +121,7 @@ export class AuthService {
   getCommentsByLogin(orderInfo: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/getCommentsByLogin',orderInfo,
+    return this.http.post('account/getCommentsByLogin',orderInfo,
     {headers: headers}).pipe(map((response: any) => response));
   }
 
