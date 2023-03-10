@@ -12,7 +12,7 @@ export class OrdersService {
   createOrder(order: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/create-order',
+    return this.http.post('account/create-order',
     order,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -20,7 +20,7 @@ export class OrdersService {
   getOrders(){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.get('http://localhost:3000/account/orders',
+    return this.http.get('account/orders',
     {headers: headers}).pipe(map((response: any) => response));
   }
 
@@ -41,7 +41,7 @@ export class OrdersService {
     console.log(bid);
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/create-bid',
+    return this.http.post('account/create-bid',
     bid,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -49,14 +49,14 @@ export class OrdersService {
   getBids(){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.get('http://localhost:3000/account/bids',
+    return this.http.get('account/bids',
     {headers: headers}).pipe(map((response: any) => response));
   }
 
   getBidsByOrderId(orderInfo: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('http://localhost:3000/account/getBidsByOrderId',orderInfo,
+    return this.http.post('account/getBidsByOrderId',orderInfo,
     {headers: headers}).pipe(map((response: any) => response));
   }
 
