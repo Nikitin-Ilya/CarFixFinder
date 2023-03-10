@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container1">
 
-
+    <div class="indo">
     <div class="user">
       <div class="component">
         <div class="userInfo">
@@ -14,8 +14,8 @@
             <div class="userInfo__title">
               <p>{{title}}</p>
             </div>
-
-            <div class="userInfo__rate">
+          </div>
+            <!--div class="userInfo__rate">
               <p>Рейтинг</p>
               <hr>
               <div class="userInfo__rate-show">
@@ -28,27 +28,30 @@
                   <span class="value">240</span>
                 </div>
               </div>
-            </div>
-          </div>
-
-
-          <!------------------------Foto------------------------>
-          <div class="userInfo__foto">
-            <img src="{{imagePath}}" alt="Ой!">
-          </div>
-
-          <div class="userInfo__resume">
-            <p>Резюме</p>
-            <hr>
-            <div class="userInfo__resume-info">
-              <div [innerHTML]="resumeHtml" class="userInfo__resume-text">
+            </div-->
+            <div class="userInfo__resume">
+              <p>Резюме</p>
+              <hr>
+              <div class="userInfo__resume-info">
+                <div [innerHTML]="resumeHtml" class="userInfo__resume-text">
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
+      <div class="userInfo__foto">
+        <img src="{{imagePath}}" alt="Ой!">
+      </div>
     </div>
+
+
+          <!------------------------Foto------------------------>
+
+
+
+
+
 
 
 

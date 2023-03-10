@@ -29,8 +29,16 @@
 
 }
 
+.indo{
+  display: flex;
+}
+
 .user{
   display: flex;
+}
+
+.component{
+  width: 970px;
 }
 
 hr{border-top: 1px solid #ebebeb; /*margin-top: 7px; margin-bottom: 7px;*/}
@@ -113,41 +121,6 @@ hr{border-top: 1px solid #ebebeb; /*margin-top: 7px; margin-bottom: 7px;*/}
     }
   }
 
-
-  .userInfo__foto{
-    width: 200px;
-    height: 200px;
-    float: right;
-    img{
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-    }
-    .userInfo__addFoto{
-      opacity: 0;
-      visibility: hidden;
-      transition: .5s opacity, .5s visibility;
-      width: 198px;
-      height: 45px;
-      background-color: #555555c9;
-      color: #fff;
-      font-size: 18px;
-      font-weight: 520;
-      text-align: center;
-      position:absolute;
-      margin-top: -123px;
-      border-radius: 5px;
-      margin-left: 1px;
-      text-shadow: 1px 1px 10px black;
-      .fa{
-        margin-right: 7px;
-      }
-      cursor: pointer;
-      p{
-        padding-top: 12px;
-      }
-    }
-  }
   .userInfo__foto:hover .userInfo__addFoto{
     opacity: 1;
     visibility: visible;
@@ -408,3 +381,15 @@ hr{border-top: 1px solid #ebebeb; /*margin-top: 7px; margin-bottom: 7px;*/}
   }
 
 }
+
+.userInfo__foto{
+  margin-left: 20px;
+  width: 200px;
+  height: 200px;
+  float: right;
+  img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  }
