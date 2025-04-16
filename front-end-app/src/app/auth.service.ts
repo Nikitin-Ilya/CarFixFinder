@@ -53,8 +53,8 @@ export class AuthService {
   };
 
   getUsers() {
-    /*return this.http.post('http://localhost:3000/account/getUserByLogin',
-    login).pipe(map((response: any) => response));*/
+    // return this.http.post('http://localhost:3000/account/getUserByLogin',
+    // login).pipe(map((response: any) => response));
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
     return this.http.get('account/getUsers',
@@ -62,8 +62,8 @@ export class AuthService {
   }
 
   getUsersProfile(){
-    /*return this.http.post('http://localhost:3000/account/getUserByLogin',
-    login).pipe(map((response: any) => response));*/
+    // return this.http.post('http://localhost:3000/account/getUserByLogin',
+    // login).pipe(map((response: any) => response));
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
     return this.http.get('account/getUsersProfile',
