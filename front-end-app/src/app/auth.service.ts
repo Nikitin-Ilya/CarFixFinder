@@ -7,6 +7,7 @@ import { Console } from 'console';
   providedIn: 'root'
 })
 export class AuthService {
+  host = 'http://localhost:3000/';
 
   token: any;
   user: any;
@@ -16,7 +17,7 @@ export class AuthService {
   registerUser(user: any) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('account/reg',
+    return this.http.post(this.host + 'account/reg',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -24,7 +25,7 @@ export class AuthService {
   authUser(user: any) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('account/auth',
+    return this.http.post(this.host + 'account/auth',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -57,7 +58,7 @@ export class AuthService {
     // login).pipe(map((response: any) => response));
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.get('account/getUsers',
+    return this.http.get(this.host + 'account/getUsers',
     {headers: headers}).pipe(map((response: any) => response));
   }
 
@@ -66,7 +67,7 @@ export class AuthService {
     // login).pipe(map((response: any) => response));
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.get('account/getUsersProfile',
+    return this.http.get(this.host + 'account/getUsersProfile',
     {headers: headers}).pipe(map((response: any) => response));
   }
 
@@ -77,7 +78,7 @@ export class AuthService {
   }
 
   setImage(data: any) {
-    return this.http.post('account/setProfileImage',
+    return this.http.post(this.host + 'account/setProfileImage',
     data).pipe(map((response: any) => response));
     /*.subscribe(res => {
       console.log(res);
@@ -88,7 +89,7 @@ export class AuthService {
   updateUser(user: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('account/updateUserProfile',
+    return this.http.post(this.host + 'account/updateUserProfile',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -96,7 +97,7 @@ export class AuthService {
   updateEmail(user: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('account/updateUserEmail',
+    return this.http.post(this.host + 'account/updateUserEmail',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -104,7 +105,7 @@ export class AuthService {
   updatePassword(user: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('account/updateUserPassword',
+    return this.http.post(this.host + 'account/updateUserPassword',
     user,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -113,7 +114,7 @@ export class AuthService {
     console.log(bid);
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('account/create-comment',
+    return this.http.post(this.host + 'account/create-comment',
     bid,
     {headers: headers}).pipe(map((response: any) => response));
   }
@@ -121,7 +122,7 @@ export class AuthService {
   getCommentsByLogin(orderInfo: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
-    return this.http.post('account/getCommentsByLogin',orderInfo,
+    return this.http.post(this.host + 'account/getCommentsByLogin',orderInfo,
     {headers: headers}).pipe(map((response: any) => response));
   }
 
