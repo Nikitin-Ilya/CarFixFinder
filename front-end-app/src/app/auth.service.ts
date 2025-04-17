@@ -14,6 +14,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  // TODO: make a request to the server and get user categories data from the user profile
+
   registerUser(user: any) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
@@ -54,8 +56,6 @@ export class AuthService {
   };
 
   getUsers() {
-    // return this.http.post('http://localhost:3000/account/getUserByLogin',
-    // login).pipe(map((response: any) => response));
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
     return this.http.get(this.host + 'account/getUsers',
@@ -63,8 +63,6 @@ export class AuthService {
   }
 
   getUsersProfile(){
-    // return this.http.post('http://localhost:3000/account/getUserByLogin',
-    // login).pipe(map((response: any) => response));
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
     return this.http.get(this.host + 'account/getUsersProfile',
@@ -73,17 +71,12 @@ export class AuthService {
 
   getUserByLogin(login: string){
     return this.getUsers().pipe(
-      // (+) before `id` turns the string into a number
       map((users: any) => users.find((user: any) => user.login === +login)!));
   }
 
   setImage(data: any) {
     return this.http.post(this.host + 'account/setProfileImage',
     data).pipe(map((response: any) => response));
-    /*.subscribe(res => {
-      console.log(res);
-      return res;
-    });*/
   }
 
   updateUser(user: any){

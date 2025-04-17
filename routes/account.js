@@ -312,4 +312,7 @@ router.post('/getCommentsByLogin', async (req, res) => {
     res.json(Reviews);
 });
 
+// TODO: get user profile by login from the DB (db model name: UserProfile)
+// TODO: get orders that suit the user from the DB (db model name: Order)
+
 module.exports = router;

@@ -23,7 +23,7 @@ const UserProfileSchema = mongoose.Schema({
         type: String
     },
     category: {
-        type: String
+        type: [String],
     },
     telegram: {
         type: String

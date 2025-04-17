@@ -10,6 +10,8 @@ export class OrdersService {
 
   constructor(private http: HttpClient) { }
 
+  // TODO: make a request to the server to get orders that suit the user
+
   createOrder(order: any){
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
@@ -27,15 +29,8 @@ export class OrdersService {
 
   getOrder(id: string){
     return this.getOrders().pipe(
-      // (+) before `id` turns the string into a number
       map((orders: any) => orders.find((order: any) => order._id === +id)!)
     );
-
-
-    /*let headers = new HttpHeaders();
-    headers.append('Content-Type', "applicaton/json");
-    return this.http.get('http://localhost:3000/account/orders',
-    {headers: headers}).pipe(map((orders: any) => orders.find((order: any) => order._id === +id)!));*/
   }
 
   createBid(bid: any){

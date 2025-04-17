@@ -11,6 +11,6 @@ export class OrderDataService {
   description!:String;
   descriptionHtml!:String;
   date!:number;
-  category!:String;
-  userLogin!:String;
+  category!:string;
+  userLogin!:string;
 }

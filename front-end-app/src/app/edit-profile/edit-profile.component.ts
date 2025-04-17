@@ -21,7 +21,7 @@ export class EditProfileComponent implements OnInit {
   title!: String;
   resume!: String;
   resumeHtml!: String;
-  category!: String;
+  category!: String[];
   telegram!: String;
 
   constructor(
@@ -41,6 +41,7 @@ export class EditProfileComponent implements OnInit {
           this.resumeHtml = value.resumeHtml;
           this.rteObj.executeCommand('insertHTML', value.resumeHtml);
           this.telegram = value.telegram;
+          this.category = value.category;
 
         }
       });

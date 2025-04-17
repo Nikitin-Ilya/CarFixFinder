@@ -42,6 +42,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
@@ -94,7 +95,8 @@ const appRoute: Routes = [
     MatExpansionModule,
     MatTreeModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggleModule
   ],
   providers: [
     CheckFormService,

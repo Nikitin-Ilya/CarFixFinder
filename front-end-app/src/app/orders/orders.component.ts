@@ -7,6 +7,7 @@ import {OrdersService} from '../orders.service';
 import { OrderDataService } from '../order-data.service';
 import { NumericTypes } from 'mongoose';
 import {ThemePalette} from '@angular/material/core';
+import { profile } from 'console';
 
 
 @Component({
@@ -17,7 +18,7 @@ import {ThemePalette} from '@angular/material/core';
 
 export class OrdersComponent implements OnInit {
 
-  orders = this.ordersService.getOrders();
+  orders: OrderDataService[] = [];
   panelOpenState = true;
 
   task = {
@@ -40,19 +41,10 @@ export class OrdersComponent implements OnInit {
       this.filteredProducts=orders as OrderDataService[];
     });
 
-
-    /*this.authService.getUsersProfile().forEach(element => {
-      element.forEach((value: any) => {
-        if(value.login===this.route.snapshot.params['login'])
-        {
-          if(value.foto!=null) {this.imagePath = value.foto;}
-          this.login = value.login;
-          this.name = value.name;
-          this.title = value.title;
-          this.resumeHtml = value.resumeHtml;
-        }
-      });
-    });*/
+    // TODO: make a request to the server and get user categories data from the user profile
+    // TODO: make a request to the server to receive orders whose category matches the user's categories
+    // You can get the user profile by login
+    // this.authService.getUser().login
   }
 
   createOrder(){
